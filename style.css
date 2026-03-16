@@ -1,0 +1,305 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* ---------- HEADER / NAVBAR ---------- */
+header{
+    background:#2f7d57;
+    padding:20px 60px;
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+}
+
+.menu a:hover{
+    text-decoration:underline;
+}
+
+.contact-btn{
+    padding:10px 20px;
+    background:transparent;
+    border:2px solid white;
+    color:white;
+    cursor:pointer;
+    border-radius:4px;
+}
+
+/* ---------- HERO SECTION WITH BACKGROUND IMAGE ---------- */
+.hero{
+    height:90vh;
+    display:flex;
+    align-items:center;
+    padding-left:80px;
+
+    background-image:url("uni.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    color:white;
+}
+
+.hero-text{
+    max-width:600px;
+    background:rgba(0,0,0,0.5);
+    padding:30px;
+    border-radius:10px;
+}
+
+.hero-text h1{
+    font-size:60px;
+}
+
+.hero-text span{
+    color:#ffd166;
+}
+
+.hero-text p{
+    margin-top:15px;
+    font-size:20px;
+    line-height:1.6;
+}
+
+/* ---------- BUTTONS ---------- */
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:20px;
+}
+
+.admission{
+    padding:12px 25px;
+    background:#1e4d3c;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-size:18px;
+}
+
+.academic-link{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* ---------- PROGRAMMES PAGE ---------- */
+.programmes{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:40px;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    width:260px;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card h2{
+    color:#0b3c6f;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.card p{
+    color:#555;
+    margin-bottom:15px;
+    font-size:16px;
+}
+
+.card a{
+    display:inline-block;
+    margin-top:10px;
+    background:#0b3c6f;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.card a:hover{
+    background:#145ea8;
+}
+
+/* ---------- REGISTER INTEREST FORM ---------- */
+.interest{
+    padding:40px;
+    text-align:center;
+}
+
+.interest h2{
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.interest form{
+    background:white;
+    padding:25px;
+    max-width:400px;
+    margin:auto;
+    border-radius:5px;
+}
+
+.interest input,
+.interest select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.interest button{
+    background:#0b3c6f;
+    color:white;
+    border:none;
+    padding:12px;
+    cursor:pointer;
+    width:100%;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.interest button:hover{
+    background:#145ea8;
+}
+
+/* ---------- ERROR MESSAGES ---------- */
+.error{
+    color:red !important;      /* ensures errors appear in red */
+    font-size:14px;
+    display:block;
+    margin-bottom:5px;
+}
+
+/* ---------- COURSE DETAIL PAGES ---------- */
+.modules{
+    max-width:800px;
+    margin:40px auto;
+    padding:30px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.modules h2{
+    font-size:30px;
+    color:#1e4d3c;
+    margin-bottom:15px;
+}
+
+.modules p{
+    font-size:20px;
+    line-height:1.6;
+    color:#333;
+    margin-bottom:20px;
+}
+
+.modules ul{
+    font-size:20px;
+    padding-left:20px;
+}
+
+.modules li{
+    margin-bottom:10px;
+}
+
+/* ---------- BACK BUTTON ---------- */
+.back{
+    display:inline-block;
+    margin:30px;
+    font-size:18px;
+    padding:10px 20px;
+    background:#1e4d3c;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.back:hover{
+    background:#145ea8;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#ddd;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media(max-width:768px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-text{
+    width:100%;
+}
+
+.programmes{
+    flex-direction:column;
+    align-items:center;
+}
+
+}
+
+/* ---------- CENTER REGISTER INTEREST AND SUCCESS MESSAGE ---------- */
+.interest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* centers form and heading horizontally */
+    justify-content: center; /* optional: vertically centers content inside section */
+    text-align: center;     /* centers heading and success messages */
+}
+
+#successMsg {
+    font-size:16px;
+    margin-top:10px;
+    text-align:center;      /* ensures green success message is centered */
+    font-weight:bold;
+}
+
+.success-text{
+    color:green;           /* green color for success message */
+}

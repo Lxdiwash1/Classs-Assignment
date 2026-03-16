@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Course Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Student Course Hub</h1>
+<p>Explore our undergraduate and postgraduate computer programmes</p>
+</header>
+
+<section class="programmes">
+
+<div class="card">
+<h2>BSc Cyber Security</h2>
+<p>Learn network security and ethical hacking.</p>
+<a href="cyber.html">View Programme</a>
+</div>
+
+<div class="card">
+<h2>BSc Computer Science</h2>
+<p>Study programming, algorithms and AI.</p>
+<a href="cs.html">View Programme</a>
+</div>
+
+<div class="card">
+<h2>MSc Data Science</h2>
+<p>Master machine learning and analytics.</p>
+<a href="data.html">View Programme</a>
+</div>
+
+<div class="card">
+<h2>BSc Software Engineering</h2>
+<p>Learn software design and development.</p>
+<a href="software.html">View Programme</a>
+</div>
+
+<div class="card">
+<h2>BSc Artificial Intelligence</h2>
+<p>Explore intelligent systems and AI models.</p>
+<a href="ai.html">View Programme</a>
+</div>
+
+<div class="card">
+<h2>BSc Web Development</h2>
+<p>Learn HTML, CSS, JavaScript and modern web tools.</p>
+<a href="web.html">View Programme</a>
+</div>
+
+</section>
+
+<section class="interest">
+
+<h2>Register Your Interest</h2>
+
+<form id="interestForm">
+
+<div class="form-group">
+<span class="error" id="nameError"></span>
+<input type="text" id="name" placeholder="Your Name">
+</div>
+
+<div class="form-group">
+<span class="error" id="emailError"></span>
+<input type="text" id="email" placeholder="Your Email">
+</div>
+
+<div class="form-group">
+<span class="error" id="phoneError"></span>
+<input type="text" id="phone" placeholder="Phone Number (Optional)">
+</div>
+
+<div class="form-group">
+<span class="error" id="programmeError"></span>
+<select id="programme">
+<option value="" selected disabled>Select Programme</option>
+<option>Cyber Security</option>
+<option>Computer Science</option>
+<option>Data Science</option>
+<option>Software Engineering</option>
+<option>Artificial Intelligence</option>
+<option>Web Development</option>
+</select>
+</div>
+
+<button type="submit">Submit</button>
+</form>
+
+<!-- SUCCESS MESSAGE -->
+<div id="successMsg"></div>
+
+</section>
+
+<footer>
+<p>London Technology College ©copyright</p>
+</footer>
+
+<script>
+document.getElementById("interestForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name");
+    let email = document.getElementById("email");
+    let phone = document.getElementById("phone");
+    let programme = document.getElementById("programme");
+
+    let nameError = document.getElementById("nameError");
+    let emailError = document.getElementById("emailError");
+    let phoneError = document.getElementById("phoneError");
+    let programmeError = document.getElementById("programmeError");
+    let successMsg = document.getElementById("successMsg");
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    // Reset errors
+    nameError.innerHTML = "";
+    emailError.innerHTML = "";
+    phoneError.innerHTML = "";
+    programmeError.innerHTML = "";
+    successMsg.innerHTML = "";
+
+    name.classList.remove("error-border");
+    email.classList.remove("error-border");
+    programme.classList.remove("error-border");
+
+    let valid = true;
+
+    // Name validation
+    if(name.value.trim() == ""){
+        nameError.innerHTML = "Mandatory";
+        name.classList.add("error-border");
+        valid = false;
+    }
+
+    // Email validation
+    if(email.value.trim() == ""){
+        emailError.innerHTML = "Mandatory";
+        email.classList.add("error-border");
+        valid = false;
+    } else if(!emailPattern.test(email.value)){
+        emailError.innerHTML = "Invalid Email (example@gmail.com)";
+        email.classList.add("error-border");
+        valid = false;
+    }
+
+    // Programme validation
+    if(programme.value == ""){
+        programmeError.innerHTML = "Mandatory";
+        programme.classList.add("error-border");
+        valid = false;
+    }
+
+    // Submit success
+    if(valid){
+        successMsg.innerHTML = "Form submitted successfully!";
+        successMsg.classList.add("success-text");
+        document.getElementById("interestForm").reset();
+
+        // Optional: remove message after 5 seconds
+        setTimeout(() => { successMsg.innerHTML = ""; successMsg.classList.remove("success-text"); }, 5000);
+    }
+});
+</script>
+
+</body>
+</html>
