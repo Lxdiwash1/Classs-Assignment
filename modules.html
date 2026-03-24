@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>Admin Panel</h3>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="admin-dashboard.html" class="nav-link">&#x1F4CA; Dashboard</a>
+      <a href="programmes.html" class="nav-link">&#x1F4DA; Programmes</a>
+      <a href="modules.html" class="nav-link active">&#x1F4D6; Modules</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="top-bar">
+      <h1 class="page-title">Modules</h1>
+    </div>
+
+    <div class="card">
+      <select id="programSelect"></select>
+      <input id="moduleName" placeholder="Module Name" required />
+      <textarea id="moduleDescription" placeholder="Description"></textarea>
+      <button id="moduleActionBtn">Add Module</button>
+    </div>
+
+    <ul id="moduleList"></ul>
+  </main>
+</div>
+
+<script type="module" src="js/guard.js"></script>
+<script type="module" src="js/modules.js"></script>
+</body>
+</html>

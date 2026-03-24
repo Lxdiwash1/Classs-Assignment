@@ -67,5 +67,65 @@ stand out in the competitive job market.
 </p>
 </section>
 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programmes</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>Admin Panel</h3>
+    </div>
+    <nav class="sidebar-nav">
+    <a href="admin-dashboard.html" class="nav-link">&#x1F4CA; Dashboard</a>
+      <a href="programmes.html" class="nav-link active">&#x1F4DA; Programmes</a>
+      <a href="modules.html" class="nav-link ">&#x1F4D6; Modules</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="top-bar">
+      <h1 class="page-title">Programmes</h1>
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+      <button id="addProgrammeBtn">+ Add Program</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Level</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="programmeTable"></tbody>
+    </table>
+  </main>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal hidden">
+  <div class="card">
+    <h3>Add Programme</h3>
+    <input id="name" placeholder="Name" maxlength="100" />
+    <select id="level">
+      <option value="UG">UG</option>
+      <option value="PG">PG</option>
+    </select>
+    <textarea id="description" placeholder="Description" maxlength="1024"></textarea>
+    <button id="saveBtn">Save</button>
+    <button id="cancelBtn">Cancel</button>
+    <p id="formError" class="error"></p>
+  </div>
+</div>
+
+<script type="module" src="js/guard.js"></script>
+<script type="module" src="js/programmes.js"></script>
 </body>
 </html>

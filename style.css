@@ -3,6 +3,39 @@
     padding:0;
     box-sizing:border-box;
     font-family:Arial, Helvetica, sans-serif;
+/* ---------- GLOBAL RESET ---------- */
+:root{
+       --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2230;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.15);
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --text-subtle: #484f58;
+    --accent: #3b82f6;
+    --accent-dim: rgba(59,130,246,0.12);
+    --accent-dim2: rgba(59,130,246,0.2);
+    --green: #3fb950;
+    --green-dim: rgba(63,185,80,0.12);
+    --red: #f85149;
+    --red-dim: rgba(248,81,73,0.12);
+    --amber: #d29922;
+    --amber-dim: rgba(210,153,34,0.12);
+    --purple: #a371f7;
+    --purple-dim: rgba(163,113,247,0.12);
+    --radius: 10px;
+    --radius-sm: 6px;
+    --sidebar-w: 240px;
+    --header-h: 56px;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Cascadia Code', 'Fira Code', monospace;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -498,6 +531,32 @@ footer{
 }
 
 /* RESPONSIVE */
+.land-right-button{
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+}
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #ddd;
+}
+
+/* ---------- TABLET BREAKPOINT ---------- */
+@media(min-width: 769px) and (max-width: 1024px){
+    .hero-text {
+        padding: 20px;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* ---------- MOBILE BREAKPOINT ---------- */
 @media(max-width:768px){
     .navbar{ flex-direction:column; gap:15px; }
     .menu{ flex-direction:column; gap:0; width:100%; }

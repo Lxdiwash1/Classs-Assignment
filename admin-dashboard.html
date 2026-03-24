@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin Panel</h3>
+      </div>
+      <nav class="sidebar-nav">
+      <a href="admin-dashboard.html" class="nav-link active">&#x1F4CA; Dashboard</a>
+      <a href="programmes.html" class="nav-link">&#x1F4DA; Programmes</a>
+      <a href="modules.html" class="nav-link ">&#x1F4D6; Modules</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar">
+        <h1 class="page-title">Dashboard</h1>
+        <button id="logoutbtn">Logout</button>
+      </div>
+
+      <div class="dashboard-container">
+        <!-- Stats Section -->
+        <section class="stats-section">
+          <h2 class="section-title">Overview</h2>
+          <div class="stat-cards">
+            <div class="stat-card card-primary">
+              <div class="stat-content">
+                <div class="stat-title">Total Programs</div>
+                <div class="stat-value" id="progCount">0</div>
+              </div>
+            </div>
+
+            <div class="stat-card card-success">
+              <div class="stat-content">
+                <div class="stat-title">Total Modules</div>
+                <div class="stat-value" id="moduleCount">0</div>
+              </div>
+            </div>
+
+            <div class="stat-card card-info">
+              <div class="stat-content">
+                <div class="stat-title">Published</div>
+                <div class="stat-value" id="publishedCount">0</div>
+              </div>
+            </div>
+
+            <div class="stat-card card-warning">
+              <div class="stat-content">
+                <div class="stat-title">Drafts</div>
+                <div class="stat-value" id="draftCount">0</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Actions Section -->
+        <section class="quick-actions-section">
+          <h2 class="section-title">Quick Actions</h2>
+          <div class="actions-grid">
+            <a href="programmes.html" class="action-card">
+              <div class="action-icon">&#10133;</div>
+              <div class="action-text">Add Programme</div>
+            </a>
+            <a href="modules.html" class="action-card">
+              <div class="action-icon">&#10133;</div>
+              <div class="action-text">Add Module</div>
+            </a>
+            <a href="programmes.html" class="action-card">
+              <div class="action-icon">&#x1F441;</div>
+              <div class="action-text">View Programmes</div>
+            </a>
+            <a href="modules.html" class="action-card">
+              <div class="action-icon">&#x1F441;</div>
+              <div class="action-text">View Modules</div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/dashboard.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/guard.js"></script>
+
+</body>
+</html>
