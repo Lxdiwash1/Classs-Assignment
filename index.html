@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>London Technology College</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- NAVBAR -->
 <header>
 <div class="navbar">
   <div class="logo">
@@ -17,11 +16,42 @@
   </div>
 
   <ul class="menu">
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="campus.html">Campus Life</a></li>
-    <li><a href="news.html">News</a></li>
-  </ul>
+    <!-- About Us Dropdown -->
+    <li class="dropdown">
+      <a href="#">About Us ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">Our College</a></li>
+        <li><a href="staff.html">Our Staff</a></li>
+        <li><a href="mission.html">Mission</a></li>
+      </ul>
+    </li>
 
+    <!-- Campus Life Dropdown -->
+    <li class="dropdown">
+      <a href="#">Campus Life ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="campus.html">Campus Overview</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="clubs.html">Clubs & Activities</a></li>
+      </ul>
+    </li>
+
+    <!-- News & Updates -->
+    <li><a href="news.html">News</a></li>
+
+    <!-- Academics / Admission -->
+    <li class="dropdown">
+      <a href="#">Academics ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="departments.html">Departments</a></li>
+      </ul>
+    </li>
+
+    <!-- Contact -->
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
   <div class="land-right-button">
       <a href="contact.html">
     <button class="contact-btn">Contact Us</button>
@@ -40,15 +70,9 @@
 <!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-text">
-    <h1>This is <span>Future!</span></h1>
-    <p>
-      College of Computing and Technology. Build your future with modern
-      programming, software development, and innovative digital solutions.
-    </p>
-    <div class="buttons">
-      <!-- Fixed: text is now fully inside the link -->
-      <a href="admission.html" class="admission">Explore Academics →</a>
-    </div>
+    <h1>Welcome to <span>London Technology College</span></h1>
+    <p>Shaping the future of technology through quality education and innovation.</p>
+    <a href="admission.html" class="admission">Explore Academics →</a>
   </div>
 </section>
 

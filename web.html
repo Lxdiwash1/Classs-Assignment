@@ -3,23 +3,61 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Web Development</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSc Web Development - London Technology College</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- Navbar -->
 <header>
-<h1>BSc Web Development</h1>
-<p>Create modern websites and applications</p>
+  <div class="navbar">
+    <div class="logo">London Technology College</div>
+    <ul class="menu">
+      <li><a href="index.html" class="back">Home</a></li>
+      <li class="dropdown">
+        <a href="#">About Us ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Our College</a></li>
+          <li><a href="staff.html">Our Staff</a></li>
+          <li><a href="mission.html">Mission</a></li>
+        </ul>
+      </li>
+      <li><a href="campus.html">Campus Life</a></li>
+      <li><a href="news.html">News</a></li>
+      <li class="dropdown">
+        <a href="#">Academics ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="admission.html">Admission</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="departments.html">Departments</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 </header>
 
+<!-- Page Hero -->
+<section class="page-hero" style="display:flex; flex-direction:column; align-items:center; justify-content:center; margin-top:20px;">
+  <h1>BSc Web Development</h1>
+  
+  <p style="margin-top:10px; text-align:center;">Create modern websites and full-stack web applications.</p>
+</section>
+
+<!-- Course Details -->
 <section class="modules">
 
 <h2>Course Overview</h2>
 <p>
-Web Development teaches how to build websites
-and web applications using modern technologies.
+Web Development teaches how to build websites and web applications using modern technologies.
+It covers front-end development, back-end programming, and full-stack solutions.
+</p>
+
+<p>
+Students learn to create responsive, user-friendly, and secure web applications. 
+These skills prepare them for careers in web design, web development, and digital product creation.
 </p>
 
 <h2>Main Subjects</h2>
@@ -31,8 +69,6 @@ and web applications using modern technologies.
 </ul>
 
 </section>
-
-<a href="admission.html" class="btn back">← Back to Programmes</a>
 
 </body>
 </html>
