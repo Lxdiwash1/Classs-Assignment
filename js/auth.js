@@ -16,7 +16,7 @@ loginForm.addEventListener("submit", (e) => {
   // Dummy auth (need to replace with API later)
   if (email === "admin@test.com" && password === "1234") {
     localStorage.setItem("auth", "true");
-    window.location.href = "admin-dashboard.html";
+    window.location.href = "admin/admin-dashboard.html";
   } else {
     showError("Invalid credentials");
   }
@@ -29,7 +29,7 @@ const logoutBtn = document.getElementById("logoutbtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("auth"); // Clear the "session"
-    window.location.href = "login.html"; // Redirect to login
+    window.location.href = "/html/login.html"; // Redirect to login
   });
 }
 
