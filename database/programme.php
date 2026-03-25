@@ -1,11 +1,12 @@
 <?php
 require 'db.php';
+require '../security/security.php';
 
-// Validate ID
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if ($id <= 0) {
-    header('Location: admission.php');
-    exit;
+// Validate ID from URL
+$id = validate_id($_GET['id'] ?? 0);
+
+if (!$id) {
+    redirect('admission.php');
 }
 
 // Fetch programme details
@@ -16,16 +17,18 @@ $stmt = $conn->prepare("
     JOIN Staff s ON p.ProgrammeLeaderID = s.StaffID
     WHERE p.ProgrammeID = ?
 ");
-$stmt->bind_param('i', $id);
+$stmt->bind_param("i", $id);
 $stmt->execute();
-$prog = $stmt->get_result()->fetch_assoc();
+$result = $stmt->get_result();
+$programme = $result->fetch_assoc();
+$stmt->close();
 
-if (!$prog) {
+if (!$programme) {
     header('Location: admission.php');
     exit;
 }
 
-// Fetch modules grouped by year
+// Fetch modules for this programme
 $stmt2 = $conn->prepare("
     SELECT m.ModuleName, m.Description, s.Name AS ModuleLeader, pm.Year
     FROM ProgrammeModules pm
@@ -34,65 +37,53 @@ $stmt2 = $conn->prepare("
     WHERE pm.ProgrammeID = ?
     ORDER BY pm.Year, m.ModuleName
 ");
-$stmt2->bind_param('i', $id);
+$stmt2->bind_param("i", $id);
 $stmt2->execute();
-$modulesResult = $stmt2->get_result();
-
-$modulesByYear = [];
-while ($row = $modulesResult->fetch_assoc()) {
-    $modulesByYear[$row['Year']][] = $row;
+$modResult = $stmt2->get_result();
+$modules = [];
+while ($row = $modResult->fetch_assoc()) {
+    $modules[$row['Year']][] = $row;
 }
+$stmt2->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php echo htmlspecialchars($prog['ProgrammeName']); ?></title>
-<link rel="stylesheet" href="style.css">
+<title><?php echo htmlspecialchars($programme['ProgrammeName']); ?></title>
+<link rel="stylesheet" href="../html/style.css">
 </head>
-
 <body>
 
 <header>
-<h1><?php echo htmlspecialchars($prog['ProgrammeName']); ?></h1>
-<p><?php echo htmlspecialchars($prog['LevelName']); ?></p>
+<h1><?php echo htmlspecialchars($programme['ProgrammeName']); ?></h1>
+<p><?php echo htmlspecialchars($programme['LevelName']); ?></p>
 </header>
 
 <section class="modules">
 
 <h2>Course Overview</h2>
-<p><?php echo htmlspecialchars($prog['Description']); ?></p>
+<p><?php echo htmlspecialchars($programme['Description']); ?></p>
 
-<p><strong>Programme Leader:</strong> <?php echo htmlspecialchars($prog['LeaderName']); ?></p>
+<p><strong>Programme Leader:</strong> <?php echo htmlspecialchars($programme['LeaderName']); ?></p>
 
-<h2>Modules</h2>
-
-<?php foreach ($modulesByYear as $year => $modules): ?>
-  <h3><?php echo $year == 1 ? 'Year 1' : ($year == 2 ? 'Year 2' : 'Year 3'); ?></h3>
-  <table class="module-table">
-    <thead>
-      <tr>
-        <th>Module</th>
-        <th>Module Leader</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($modules as $mod): ?>
-      <tr>
-        <td><?php echo htmlspecialchars($mod['ModuleName']); ?></td>
-        <td><?php echo htmlspecialchars($mod['ModuleLeader']); ?></td>
-        <td><?php echo htmlspecialchars($mod['Description']); ?></td>
-      </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+<?php foreach ($modules as $year => $mods): ?>
+<h2><?php echo $year == 1 ? 'Year 1' : ($year == 2 ? 'Year 2' : 'Year 3'); ?> Modules</h2>
+<ul>
+  <?php foreach ($mods as $mod): ?>
+  <li>
+    <strong><?php echo htmlspecialchars($mod['ModuleName']); ?></strong>
+    — <?php echo htmlspecialchars($mod['Description']); ?>
+    <br><small>Module Leader: <?php echo htmlspecialchars($mod['ModuleLeader']); ?></small>
+  </li>
+  <?php endforeach; ?>
+</ul>
 <?php endforeach; ?>
 
 </section>
 
-<a href="admission.php" class="btn back">&#8592; Back to Programmes</a>
+<a href="admission.php" class="btn back">← Back to Programmes</a>
 
 <footer>
 <p>London Technology College &copy;copyright</p>
