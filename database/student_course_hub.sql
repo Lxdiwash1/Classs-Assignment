@@ -281,7 +281,11 @@ INSERT INTO `programmes` (`ProgrammeID`, `ProgrammeName`, `LevelID`, `ProgrammeL
 
 CREATE TABLE `staff` (
   `StaffID` int(11) NOT NULL,
-  `Name` text NOT NULL
+  `Name` text NOT NULL,
+  `JobTitle` varchar(255) DEFAULT NULL,
+  `Department` varchar(255) DEFAULT NULL,
+  `Bio` text DEFAULT NULL,
+  `Photo` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -326,7 +330,8 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `interestedstudents`
   ADD PRIMARY KEY (`InterestID`),
-  ADD KEY `ProgrammeID` (`ProgrammeID`);
+  ADD KEY `ProgrammeID` (`ProgrammeID`),
+  ADD UNIQUE KEY `unique_student_programme` (`Email`(255), `ProgrammeID`);
 
 --
 -- Indexes for table `levels`
@@ -339,7 +344,8 @@ ALTER TABLE `levels`
 --
 ALTER TABLE `modules`
   ADD PRIMARY KEY (`ModuleID`),
-  ADD KEY `ModuleLeaderID` (`ModuleLeaderID`);
+  ADD KEY `ModuleLeaderID` (`ModuleLeaderID`),
+  ADD INDEX `idx_module_name` (`ModuleName`(100));
 
 --
 -- Indexes for table `programmemodules`
@@ -355,7 +361,8 @@ ALTER TABLE `programmemodules`
 ALTER TABLE `programmes`
   ADD PRIMARY KEY (`ProgrammeID`),
   ADD KEY `LevelID` (`LevelID`),
-  ADD KEY `ProgrammeLeaderID` (`ProgrammeLeaderID`);
+  ADD KEY `ProgrammeLeaderID` (`ProgrammeLeaderID`),
+  ADD INDEX `idx_programme_name` (`ProgrammeName`(100));
 
 --
 -- Indexes for table `staff`
